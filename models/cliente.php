@@ -35,9 +35,10 @@ class Cliente {
         return $array;
     }
 
-    public function getCliente($idCliente){
-        $consulta = $this->db->query("SELECT * FROM cliente WHERE id_cliente = '$idCliente'");
-        return $consulta;
+    public function getCliente($nombre,$password){
+        // Si existe un usuario devuelve verdadero 
+        return $this->db->query("SELECT * FROM cliente WHERE nombre = '$nombre' AND password = '$password'")->rowCount()==1;
+        
     }
 
     public function insertarCliente(){
