@@ -1,16 +1,16 @@
 <?php
 require_once('../models/cliente.php');
 
-
+print_r($_GET);
 if($_GET["form"]=="login"){
-    $cliente = new Cliente();
     $nombre = $_POST["nombre"];
     $password = $_POST["password"];
-
+    $cliente = new Cliente($nombre,$password);
+    echo("Entré");
     if($cliente->getCliente($nombre,$password)){
-        header("location: ");
+        echo("Existe");
     }else{
-        header("location: ");
+       echo("No existe");
     }
 
 

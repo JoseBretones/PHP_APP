@@ -12,7 +12,20 @@ class Cliente {
     private $cp;
     private $email;
 
-    public function __construct($nom , $apes , $dni , $pass , $tlf , $dir , $loc , $ciudad , $cp , $email){
+
+    public function __construct(){
+        //Get the arguments from the constructor
+        $params = func_get_args();
+        //Num of arguments
+        $num_params = func_num_args();
+        $function_constructor = '__construct'.$num_params;
+        //Call a function with a regex
+        if (method_exists($this,$function_constructor)){
+            call_user_func_array(array($this,$function_constructor),$params);
+        }
+
+    }
+    public function __construct10($nom , $apes , $dni , $pass , $tlf , $dir , $loc , $ciudad , $cp , $email){
         $this->db = mysqli_connect('localhost', 'root', '','Alojamientos_rurales');
         $this->nombre = $nom;
         $this->apellidos = $apes;
@@ -26,18 +39,24 @@ class Cliente {
         $this->email = $email;
     }
 
+    public function __construct2($nombre,$pass){
+        $this->db = mysqli_connect('localhost', 'root', '','Alojamientos_rurales');
+        $this->nombre = $nombre;
+        $this->contraseña = $pass;
+    }
+
     public function getClientes(){
         $array = array();
         $consulta = $this->db->query("SELECT * FROM cliente");
         while($fila = $consulta->fetch_assoc()){
-            array[] = $fila;
+            $array[] = $fila;
         }
         return $array;
     }
 
     public function getCliente($nombre,$password){
         // Si existe un usuario devuelve verdadero 
-        return $this->db->query("SELECT * FROM cliente WHERE nombre = '$nombre' AND password = '$password'")->rowCount()==1;
+        return $this->db->query("SELECT * FROM cliente WHERE nombre = '$nombre' AND contraseña = '$password'")->rowCount()==1;
         
     }
 
