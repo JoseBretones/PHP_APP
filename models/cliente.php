@@ -39,6 +39,10 @@ class Cliente {
         $this->email = $email;
     }
 
+    private function set_names(){
+        return $this->db->query("SET NAMES 'utf8'");
+    }
+
     public function __construct2($nombre,$pass){
         $this->db = mysqli_connect('localhost', 'root', '','Alojamientos_rurales');
         $this->nombre = $nombre;
@@ -56,7 +60,10 @@ class Cliente {
 
     public function getCliente($nombre,$password){
         // Si existe un usuario devuelve verdadero 
-        return $this->db->query("SELECT * FROM cliente WHERE nombre = '$nombre' AND contraseña = '$password'")->rowCount()==1;
+        // return $this->db->query("SELECT * FROM cliente WHERE nombre = '$nombre' AND contraseña = '$password'")->rowCount()==1;
+        $sql = "SELECT * FROM cliente WHERE nombre = '$nombre' AND password ='$password'";
+        $resultado = $this->db->query($sql);
+        return mysqli_num_rows($resultado);
         
     }
 

@@ -249,7 +249,10 @@ html {
     width: 100%;
   }
   
-  
+ .error{
+     color: red;
+     position: absolute;
+   } 
   
   /* OTHERS */
   
@@ -264,3 +267,4 @@ html {
        padding: 5px 0 5px 0;
    }
 
+   

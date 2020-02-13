@@ -33,7 +33,7 @@ CREATE TABLE IF NOT EXISTS cliente (
     `nombre` VARCHAR(45) NOT NULL,
     `apellidos` VARCHAR(45) NOT NULL,
     `dni` VARCHAR(10) NOT NULL,
-    `contraseña` VARCHAR(20) NOT NULL,
+    `password` VARCHAR(20) NOT NULL,
     `telefono` INT(9) NOT NULL,
     `direccion` VARCHAR(30) NOT NULL,
     `localidad` VARCHAR(20) NOT NULL,

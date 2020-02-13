@@ -25,7 +25,7 @@
 		  </div>
 	  
 		  <!-- Login Form -->
-          <form action="../controllers/cliente_controller.php?form=register" method="POST">
+          <form action="../controllers/cliente_controller.php?form=register" method="POST" style="height: 750px;">
             <input type="text" id="nombre" class="fadeIn second" name="nombre" placeholder="Introduce nombre">
             <input type="text" id="apellidos" class="fadeIn second" name="apellidos" placeholder="Introduce Apellidos">
             <input type="text" id="dni" class="fadeIn second" name="dni" placeholder="Introduce dni">
@@ -36,8 +36,11 @@
             <input type="text" id="ciudad" class="fadeIn second" name="ciudad" placeholder="Introduce ciudad">
             <input type="number" id="cp" class="fadeIn second" name="cp" placeholder="Introduce CP">
             <input type="email" id="email" class="fadeIn second" name="email" placeholder="Introduce email">
-			<input type="button" class="fadeIn fourth" value="Registrar">
-		  </form>  
+      <input type="submit" class="fadeIn fourth" value="Registrar">
+      </form>  
+      <div class="container d-flex align-items-center d-flex justify-content-center">
+        <a class="enlacePaginaAnterior" href="javascript:history.back(-1);" title="Ir la página anterior">Volver</a>
+      </div>
 		</div>
 	  </div>
     <!-- Optional JavaScript -->

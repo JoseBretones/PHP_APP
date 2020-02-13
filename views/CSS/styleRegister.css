@@ -85,7 +85,7 @@ html {
     background-color: #56baed;
     border: none;
     color: white;
-    padding: 15px 80px;
+    padding: 15px 80px 0 0;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -343,6 +343,3 @@ html {
    .icon {
        padding: 5px 0 5px 0;
    }
-form {
-    height: 800px;
-}

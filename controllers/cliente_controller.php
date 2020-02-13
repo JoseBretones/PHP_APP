@@ -1,19 +1,19 @@
 <?php
 require_once('../models/cliente.php');
+session_start();
 
-print_r($_GET);
 if($_GET["form"]=="login"){
     $nombre = $_POST["nombre"];
     $password = $_POST["password"];
     $cliente = new Cliente($nombre,$password);
-    echo("Entré");
-    if($cliente->getCliente($nombre,$password)){
-        echo("Existe");
+    if($cliente->getCliente($nombre,$password) > 0){//Si getCliente devuelve 1 existe el usuario, si es 0, error al logearse
+        $_SESSION['nombreUsuario']=$nombre;
+        header('Location: http://localhost/PHP_APP/views/inicio.php');
     }else{
-       echo("No existe");
+        header('Location: http://localhost/PHP_APP/views/errorLogin.html');        
     }
-
-
+}elseif($_GET["form"]=="register"){
+    
 }
 
 
