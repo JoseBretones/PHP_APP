@@ -43,11 +43,9 @@
                   session_start();
                   echo $_SESSION["nombreUsuario"];                
                 ?></a>                
-              </li>   
-              <li class="nav-item">
-              <a class="nav-link" href="../index.html">Salir</a>
-            </li>        
+              </li>  
           </ul>
+          <a type="button" class="btn btn-primary" href="../index.html">Salir</a>
         </div>
       </nav>
       <!--Navbar-->

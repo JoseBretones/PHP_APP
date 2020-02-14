@@ -13,6 +13,17 @@ if($_GET["form"]=="login"){
         header('Location: http://localhost/PHP_APP/views/errorLogin.html');        
     }
 }elseif($_GET["form"]=="register"){
+    $nombre = $_POST['nombre'];
+    $apellidos = $_POST['apellidos'];
+    $dni = $_POST['dni'];
+    $password = $_POST['password'];
+    $telefono = $_POST['telefono'];
+    $direccion = $_POST['direccion'];
+    $localidad = $_POST['localidad'];
+    $ciudad = $_POST['ciudad'];
+    $cp = $_POST['cp'];
+    $email = $_POST['email'];
+    
     
 }
 
