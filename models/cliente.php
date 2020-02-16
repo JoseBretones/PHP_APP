@@ -68,16 +68,21 @@ class Cliente {
     }
 
     public function insertarCliente(){
-        $sql = "INSERT INTO cliente (nombre,apellidos,dni,contraseña,telefono,direccion,localidad,ciudad,cp,email) VALUES 
-        ('$this->nombre','$thios->apellidos','$this->dni', '$this->contraseña' ,
-        '$this->telefono','$this->direccion','$this->localidad',
-        '$this->ciudad',$this->cp,'$this->email')";
+        echo $this->nombre;
+        $sql = "INSERT INTO cliente (nombre,apellidos,dni,password,telefono,direccion,localidad,ciudad,cp,email) VALUES 
+        ('$this->nombre' , '$this->apellidos' , '$this->dni' , '$this->contraseña' ,
+        '$this->telefono' , '$this->direccion' , '$this->localidad' ,
+        '$this->ciudad' , '$this->cp' , '$this->email')";
         
+        $insertado = false;
+
         if(mysqli_query($this->db,$sql)){
             echo("Cliente insertado correctamente");
+            $insertado=true;
         }else{
             echo("Error: ".$sql."<br>".mysqli_error($this->db));
         }
+        return $insertado;
     }
 
     

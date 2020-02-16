@@ -1,3 +1,7 @@
+<?php
+session_start();
+session_destroy();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -22,22 +26,24 @@
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="./index.html">Inicio <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="./index.php">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="views/alojamientos.html">Alojamientos</a>
+              <a class="nav-link" href="views/alojamientos.php">Alojamientos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="views/reservas.html">Reserva</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-                <a class="dropdown-item" href="views/login.html">Iniciar Sesión</a>
-                <a class="dropdown-item" href="views/register.html">Registrate</a>
-              </div>
-            </li>
           </ul>
+          <div class="dropdown my-2 my-lg-0">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class=" icon fas fa-user"></i>
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="views/login.html">Iniciar Sesión</a>
+              <a class="dropdown-item" href="views/register.html">Regístrate</a>
+            </div>
+          </div>
         </div>
       </nav>
       <!--Navbar-->

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+	<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!--My style-->
+	<link rel="stylesheet" href="CSS/styleRegister.css">
+    <title>Alojamiento Rurales</title>
+  </head>
+  <body>
+	<div class="wrapper fadeInDown">
+		<div id="formContent">
+		  <!-- Tabs Titles -->
+	  
+		  <!-- Icon -->
+		  <div class="fadeIn first">
+			<i class=" icon fas fa-user fa-5x"></i>
+		  </div>
+	  
+		  <!-- Login Form -->
+          <form action="../controllers/cliente_controller.php?form=register" method="POST" style="height: 750px;" required>
+            <input type="text" id="nombre" class="fadeIn second" name="nombre" placeholder="Introduce nombre" required>
+            <input type="text" id="apellidos" class="fadeIn second" name="apellidos" placeholder="Introduce Apellidos" required>
+            <input type="text" id="dni" class="fadeIn second" name="dni" placeholder="Introduce dni" required>
+            <input type="text" id="password" class="fadeIn second" name="password" placeholder="Introduce password" required>
+            <input type="tel" id="telefono" class="fadeIn second" name="telefono" placeholder="Introduce telefono" required>
+            <input type="text" id="direccion" class="fadeIn second" name="direccion" placeholder="Introduce direccion" required>
+            <input type="text" id="localidad" class="fadeIn second" name="localidad" placeholder="Introduce localidad" required>
+            <input type="text" id="ciudad" class="fadeIn second" name="ciudad" placeholder="Introduce ciudad" required>
+            <input type="number" id="cp" class="fadeIn second" name="cp" placeholder="Introduce CP" required>
+            <input type="email" id="email" class="fadeIn second" name="email" placeholder="Introduce email" required>
+            <input type="submit" class="fadeIn fourth" value="Registrar">
+         </form>  
+         <p style="color:red">Ha ocurrido un problema al intentar registrarte</p>
+      <div class="container d-flex align-items-center d-flex justify-content-center">
+        <a class="enlacePaginaAnterior" href="javascript:history.back(-1);" title="Ir la página anterior">Volver</a>
+      </div>
+		</div>
+	  </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+	<script src="https://kit.fontawesome.com/e13faebda0.js" crossorigin="anonymous"></script>
+  </body>
+</html>

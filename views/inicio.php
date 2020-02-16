@@ -1,4 +1,7 @@
 <!--PAGINA INICIO UNA VEZ USUARIO ESTÉ LOGEADO-->
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -9,7 +12,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <!--My style-->
-    <link rel="stylesheet" href="CSS/styleInicio.css">
+    <link rel="stylesheet" href="CSS/style.css">
     <title>Alojamientos S.A</title>
   </head>
   <body>
@@ -23,29 +26,24 @@
         <div class="collapse navbar-collapse" id="navbarsExample04">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="inicio.html">Inicio <span class="sr-only">(current)</span></a>
+              <a class="nav-link" href="inicio.php">Inicio <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="alojamientos.html">Alojamientos</a>
+              <a class="nav-link" href="alojamientos.php">Alojamientos</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="reservas.html">Reserva</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Usuario</a>
-              <div class="dropdown-menu" aria-labelledby="dropdown04">
-                <a class="dropdown-item" href="login.html">Iniciar Sesión</a>
-                <a class="dropdown-item" href="register.html">Registrate</a>
-              </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link usuario" href="#"><i class="far fa-user"></i> Bienvenido <?php 
-                  session_start();
+          </ul>  
+          <div class="container d-flex justify-content-end d-flex align-items-center">
+          
+                <span class="nav-link usuario" href="#"><i class="far fa-user"></i> Bienvenido <?php 
                   echo $_SESSION["nombreUsuario"];                
-                ?></a>                
-              </li>  
-          </ul>
-          <a type="button" class="btn btn-primary" href="../index.html">Salir</a>
+                ?></span>               
+          
+          </div>
+          <button class="btn my-2 my-lg-0"><a type="button" class="btn btn-primary" href="principal.php"><i class="fas fa-shopping-cart"></i></a></button>     
+          <button class="btn my-2 my-lg-0"><a type="button" class="btn btn-danger" href="../index.php">Salir</a></button>
         </div>
       </nav>
       <!--Navbar-->
