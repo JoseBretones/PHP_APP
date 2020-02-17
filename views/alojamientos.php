@@ -109,7 +109,7 @@ session_start();
                   <?php
                   if(isset($_SESSION["nombreUsuario"])){
                   echo '<div class="d-flex justify-content-center">
-                  <a href="cesta.php?id=1" class="btn btn-primary">Añadir a la cesta</a>
+                  <a href="cesta.php?id=1&&precio=120" class="btn btn-primary">Añadir a la cesta</a>
                   </div>';
                   }
                   ?>
@@ -129,7 +129,7 @@ session_start();
                   <?php
                   if(isset($_SESSION["nombreUsuario"])){
                   echo '<div class="d-flex justify-content-center">
-                  <a href="cesta.php?id=2" class="btn btn-primary">Añadir a la cesta</a>
+                  <a href="cesta.php?id=2&&precio=100" class="btn btn-primary">Añadir a la cesta</a>
                   </div>';
                   }
                   ?>
@@ -149,7 +149,7 @@ session_start();
                   <?php
                   if(isset($_SESSION["nombreUsuario"])){
                   echo '<div class="d-flex justify-content-center">
-                  <a href="cesta.php?id=3" class="btn btn-primary">Añadir a la cesta</a>
+                  <a href="cesta.php?id=3&&precio=140" class="btn btn-primary">Añadir a la cesta</a>
                   </div>';
                   }
                   ?>
@@ -173,7 +173,7 @@ session_start();
                   <?php
                   if(isset($_SESSION["nombreUsuario"])){
                   echo '<div class="d-flex justify-content-center">
-                  <a href="cesta.php?id=4" class="btn btn-primary">Añadir a la cesta</a>
+                  <a href="cesta.php?id=4&&precio=160" class="btn btn-primary">Añadir a la cesta</a>
                   </div>';
                   }
                   ?>
@@ -193,7 +193,7 @@ session_start();
                   <?php
                   if(isset($_SESSION["nombreUsuario"])){
                   echo '<div class="d-flex justify-content-center">
-                  <a href="cesta.php?id=5" class="btn btn-primary">Añadir a la cesta</a>
+                  <a href="cesta.php?id=5&&precio=60" class="btn btn-primary">Añadir a la cesta</a>
                   </div>';
                   }
                   ?>
@@ -213,7 +213,7 @@ session_start();
                   <?php
                   if(isset($_SESSION["nombreUsuario"])){
                   echo '<div class="d-flex justify-content-center">
-                  <a href="cesta.php?id=6" class="btn btn-primary">Añadir a la cesta</a>
+                  <a href="cesta.php?id=6&&precio=80" class="btn btn-primary">Añadir a la cesta</a>
                   </div>';
                   }
                   ?>
@@ -237,7 +237,7 @@ session_start();
                   <?php
                   if(isset($_SESSION["nombreUsuario"])){
                   echo '<div class="d-flex justify-content-center">
-                  <a href="cesta.php?id=7" class="btn btn-primary">Añadir a la cesta</a>
+                  <a href="cesta.php?id=7&&precio=75" class="btn btn-primary">Añadir a la cesta</a>
                   </div>';
                   }
                   ?>
@@ -257,7 +257,7 @@ session_start();
                   <?php
                   if(isset($_SESSION["nombreUsuario"])){
                   echo '<div class="d-flex justify-content-center">
-                  <a href="cesta.php?id=8" class="btn btn-primary">Añadir a la cesta</a>
+                  <a href="cesta.php?id=8&&precio=135" class="btn btn-primary">Añadir a la cesta</a>
                   </div>';
                   }
                   ?>
@@ -277,7 +277,7 @@ session_start();
                   <?php
                   if(isset($_SESSION["nombreUsuario"])){
                   echo '<div class="d-flex justify-content-center">
-                  <a href="cesta.php?id=9" class="btn btn-primary">Añadir a la cesta</a>
+                  <a href="cesta.php?id=9&&precio=50" class="btn btn-primary">Añadir a la cesta</a>
                   </div>';
                   }
                   ?>

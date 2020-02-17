@@ -68,6 +68,7 @@ $createTableAlojamiento = "
         `ciudad` VARCHAR(15) NOT NULL,
         `cp` INT(5) NOT NULL,            
         `foto` VARCHAR(50) NOT NULL,
+        `precio` INT(4) NOT NULL,
         PRIMARY KEY (`id_alojamiento`)
     );";
 
@@ -121,63 +122,63 @@ if (mysqli_query($db, $createTableReserva)) { // se ejecuta la consulta de la cr
 }
 
 //Insertamos los 9 alojamientos disponibles hasta el momento
-$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto) VALUES ('Alojamientos Rurales Villa Verde','C/Sierra de Cazorla','Lepe','Huelva',41076,'C:\xampp\htdocs\PHP_APP\images\alojamiento1.jpg')";
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto,precio) VALUES ('Alojamientos Rurales Villa Verde','C/Sierra de Cazorla','Lepe','Huelva',41076,'C:\xampp\htdocs\PHP_APP\images\alojamiento1.jpg',120)";
 if(mysqli_query($db,$sql)){
     echo "Fila añadida a la tabla alojamiento </br>";
 }else{
     echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
 }
 /////////////////////////////////////////////////////////////////////
-$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Casa Rural Villa Cangrejo','C/Lujana nº5','Marbella','Málaga',43097,'C:\xampp\htdocs\PHP_APP\images\alojamiento2.jpg')";
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto,precio)VALUES ('Casa Rural Villa Cangrejo','C/Lujana nº5','Marbella','Málaga',43097,'C:\xampp\htdocs\PHP_APP\images\alojamiento2.jpg',100)";
 if(mysqli_query($db,$sql)){
     echo "Fila añadida a la tabla alojamiento </br>";
 }else{
     echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
 }
 ////////////////////////////////////////////////////////////////////
-$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Cortijo Bigotes','C/Chulilla nº12','Carmona','Sevilla',41089,'C:\xampp\htdocs\PHP_APP\images\alojamiento3.jpg')";
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto,precio)VALUES ('Cortijo Bigotes','C/Chulilla nº12','Carmona','Sevilla',41089,'C:\xampp\htdocs\PHP_APP\images\alojamiento3.jpg',140)";
 if(mysqli_query($db,$sql)){
     echo "Fila añadida a la tabla alojamiento </br>";
 }else{
     echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
 }
 ////////////////////////////////////////////////////////////////////
-$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Casa Palmera Turismo Rural','El Arrabal','Chelva','Valencia',42065,'C:\xampp\htdocs\PHP_APP\images\alojamiento4.jpg')";
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto,precio)VALUES ('Casa Palmera Turismo Rural','El Arrabal','Chelva','Valencia',42065,'C:\xampp\htdocs\PHP_APP\images\alojamiento4.jpg',160)";
 if(mysqli_query($db,$sql)){
     echo "Fila añadida a la tabla alojamiento </br>";
 }else{
     echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
 }
 ////////////////////////////////////////////////////////////////////
-$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Apartamentos Rurales Pajuzo','C/La cuesta nº6','Castille de la Cuesta','Sevilla',41089,'C:\xampp\htdocs\PHP_APP\images\alojamiento5.jpg')";
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto,precio)VALUES ('Apartamentos Rurales Pajuzo','C/La cuesta nº6','Castille de la Cuesta','Sevilla',41089,'C:\xampp\htdocs\PHP_APP\images\alojamiento5.jpg',60)";
 if(mysqli_query($db,$sql)){
     echo "Fila añadida a la tabla alojamiento </br>";
 }else{
     echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
 }
 ////////////////////////////////////////////////////////////////////
-$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Casa Rural la Candela de la Murtera','C/Paloma nº2','Palomares del Río','Sevilla',41089,'C:\xampp\htdocs\PHP_APP\images\alojamiento6.jpg')";
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto,precio)VALUES ('Casa Rural la Candela de la Murtera','C/Paloma nº2','Palomares del Río','Sevilla',41089,'C:\xampp\htdocs\PHP_APP\images\alojamiento6.jpg',80)";
 if(mysqli_query($db,$sql)){
     echo "Fila añadida a la tabla alojamiento </br>";
 }else{
     echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
 }
 ////////////////////////////////////////////////////////////////////
-$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Casa Taure Turismo Rural','C/El quijote','Almensilla','Sevilla',41032,'C:\xampp\htdocs\PHP_APP\images\alojamiento7.jpg')";
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto,precio)VALUES ('Casa Taure Turismo Rural','C/El quijote','Almensilla','Sevilla',41032,'C:\xampp\htdocs\PHP_APP\images\alojamiento7.jpg',75)";
 if(mysqli_query($db,$sql)){
     echo "Fila añadida a la tabla alojamiento </br>";
 }else{
     echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
 }
 ////////////////////////////////////////////////////////////////////
-$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Villa Calistro','C/norte nº12','Gallegiño','Galicia',43098,'C:\xampp\htdocs\PHP_APP\images\alojamiento8.jpg')";
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto,precio)VALUES ('Villa Calistro','C/norte nº12','Gallegiño','Galicia',43098,'C:\xampp\htdocs\PHP_APP\images\alojamiento8.jpg',135)";
 if(mysqli_query($db,$sql)){
     echo "Fila añadida a la tabla alojamiento </br>";
 }else{
     echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
 }
 ////////////////////////////////////////////////////////////////////
-$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Casa Valle del Turia','C/La esquina nº1','Andurria','Barcelona',41022,'C:\xampp\htdocs\PHP_APP\images\alojamiento9.jpg')";
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto,precio)VALUES ('Casa Valle del Turia','C/La esquina nº1','Andurria','Barcelona',41022,'C:\xampp\htdocs\PHP_APP\images\alojamiento9.jpg',50)";
 if(mysqli_query($db,$sql)){
     echo "Fila añadida a la tabla alojamiento </br>";
 }else{

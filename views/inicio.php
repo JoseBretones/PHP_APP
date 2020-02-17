@@ -42,7 +42,7 @@ session_start();
                 ?></span>               
           
           </div>
-          <button class="btn my-2 my-lg-0"><a type="button" class="btn btn-primary" href="principal.php"><i class="fas fa-shopping-cart"></i></a></button>     
+          <button class="btn my-2 my-lg-0"><a type="button" class="btn btn-primary" href="cesta.php"><i class="fas fa-shopping-cart"></i></a></button>     
           <button class="btn my-2 my-lg-0"><a type="button" class="btn btn-danger" href="../index.php">Salir</a></button>
         </div>
       </nav>
