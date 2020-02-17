@@ -60,33 +60,38 @@ session_start();
             <a class="nav-link" href="reservas.html">Reserva</a>
           </li>
         </ul>
-        <div class="dropdown my-2 my-lg-0">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              <i class=" icon fas fa-user"></i>
-            </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="login.html">Iniciar Sesión</a>
-              <a class="dropdown-item" href="register.html">Regístrate</a>
-            </div>
-          </div>
+        <?php
+          if(!isset($_SESSION['nombreUsuario'])){
+            echo '<div class="dropdown my-2 my-lg-0">';
+            echo'<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">';
+            echo '<i class=" icon fas fa-user"></i>';
+            echo '</button>';
+            echo'<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">';
+            echo'<a class="dropdown-item" href="login.html">Iniciar Sesión</a>';
+            echo'<a class="dropdown-item" href="register.html">Regístrate</a>';
+            echo'</div>';
+            echo'</div>';
+          }
+        
+        
+        
+        ?>
       </div>
       <?php  if(isset($_SESSION["nombreUsuario"])){
 
-      echo '<div class="container d-flex justify-content-end d-flex align-items-center">
+      echo '<div class="container d-flex justify-content-end d-flex align-items-center">';
           
-                <span class="nav-link usuario" href="#"><i class="far fa-user"></i> Bienvenido 
+      echo '<span class="nav-link usuario" href="#"><i class="far fa-user"></i> Bienvenido '; 
                 
-                  echo $_SESSION["nombreUsuario"];    
+      echo $_SESSION["nombreUsuario"];    
                         
-                </span>               
+      echo '</span>               
           
-          </div>';
+      </div>';
+      echo '<button class="btn my-2 my-lg-0"><a type="button" class="btn btn-primary" href="principal.php"><i class="fas fa-shopping-cart"></i></a></button>';
+      echo '<button class="btn my-2 my-lg-0"><a type="button" class="btn btn-danger" href="../index.php">Salir</a></button>';
+
       }?>
-          <?php
-          if(isset($_SESSION["nombreUsuario"])){
-          echo '<button class="btn my-2 my-lg-0"><a type="button" class="btn btn-danger" href="../index.php">Salir</a></button>';
-          }
-          ?>
     </nav>
     <!--Navbar-->
     <!--Cuerpo Pagina-->

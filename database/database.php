@@ -62,12 +62,12 @@ CREATE TABLE IF NOT EXISTS cliente (
 $createTableAlojamiento = "
     CREATE TABLE IF NOT EXISTS alojamiento (
         `id_alojamiento` INT(5) AUTO_INCREMENT,
-        `nombre` VARCHAR(45) NOT NULL,
-        `direccion` VARCHAR(45) NOT NULL,
+        `nombre` VARCHAR(70) NOT NULL,
+        `direccion` VARCHAR(70) NOT NULL,
         `localidad` VARCHAR(20) NOT NULL,
         `ciudad` VARCHAR(15) NOT NULL,
         `cp` INT(5) NOT NULL,            
-        `foto` VARCHAR(20) NOT NULL,
+        `foto` VARCHAR(50) NOT NULL,
         PRIMARY KEY (`id_alojamiento`)
     );";
 
@@ -84,7 +84,7 @@ $createTableReserva ="
     );";
 
 
-if (mysqli_query($db, $createTableCliente)) { // se ejecuta la consulta de la creación de las tablas
+if (mysqli_query($db, $createTableCliente)) { // se ejecuta la consulta de la creación de la tabla cliente
 
     echo "Tabla cliente creada en MySQLI por procedimientos"."</br>";
     
@@ -96,7 +96,7 @@ if (mysqli_query($db, $createTableCliente)) { // se ejecuta la consulta de la cr
     
 }
 
-if (mysqli_query($db, $createTableAlojamiento)) { // se ejecuta la consulta de la creación de las tablas
+if (mysqli_query($db, $createTableAlojamiento)) { // se ejecuta la consulta de la creación de la tabla alojamiento
 
     echo "Tabla alojamiento creada en MySQLI por procedimientos"."</br>";
     
@@ -108,7 +108,7 @@ if (mysqli_query($db, $createTableAlojamiento)) { // se ejecuta la consulta de l
     
 }
 
-if (mysqli_query($db, $createTableReserva)) { // se ejecuta la consulta de la creación de las tablas
+if (mysqli_query($db, $createTableReserva)) { // se ejecuta la consulta de la creación de la reserva
 
     echo "Tabla reserva creada en MySQLI por procedimientos"."</br>";
     
@@ -118,6 +118,70 @@ if (mysqli_query($db, $createTableReserva)) { // se ejecuta la consulta de la cr
     
     echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
     
+}
+
+//Insertamos los 9 alojamientos disponibles hasta el momento
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto) VALUES ('Alojamientos Rurales Villa Verde','C/Sierra de Cazorla','Lepe','Huelva',41076,'C:\xampp\htdocs\PHP_APP\images\alojamiento1.jpg')";
+if(mysqli_query($db,$sql)){
+    echo "Fila añadida a la tabla alojamiento </br>";
+}else{
+    echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
+}
+/////////////////////////////////////////////////////////////////////
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Casa Rural Villa Cangrejo','C/Lujana nº5','Marbella','Málaga',43097,'C:\xampp\htdocs\PHP_APP\images\alojamiento2.jpg')";
+if(mysqli_query($db,$sql)){
+    echo "Fila añadida a la tabla alojamiento </br>";
+}else{
+    echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
+}
+////////////////////////////////////////////////////////////////////
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Cortijo Bigotes','C/Chulilla nº12','Carmona','Sevilla',41089,'C:\xampp\htdocs\PHP_APP\images\alojamiento3.jpg')";
+if(mysqli_query($db,$sql)){
+    echo "Fila añadida a la tabla alojamiento </br>";
+}else{
+    echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
+}
+////////////////////////////////////////////////////////////////////
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Casa Palmera Turismo Rural','El Arrabal','Chelva','Valencia',42065,'C:\xampp\htdocs\PHP_APP\images\alojamiento4.jpg')";
+if(mysqli_query($db,$sql)){
+    echo "Fila añadida a la tabla alojamiento </br>";
+}else{
+    echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
+}
+////////////////////////////////////////////////////////////////////
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Apartamentos Rurales Pajuzo','C/La cuesta nº6','Castille de la Cuesta','Sevilla',41089,'C:\xampp\htdocs\PHP_APP\images\alojamiento5.jpg')";
+if(mysqli_query($db,$sql)){
+    echo "Fila añadida a la tabla alojamiento </br>";
+}else{
+    echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
+}
+////////////////////////////////////////////////////////////////////
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Casa Rural la Candela de la Murtera','C/Paloma nº2','Palomares del Río','Sevilla',41089,'C:\xampp\htdocs\PHP_APP\images\alojamiento6.jpg')";
+if(mysqli_query($db,$sql)){
+    echo "Fila añadida a la tabla alojamiento </br>";
+}else{
+    echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
+}
+////////////////////////////////////////////////////////////////////
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Casa Taure Turismo Rural','C/El quijote','Almensilla','Sevilla',41032,'C:\xampp\htdocs\PHP_APP\images\alojamiento7.jpg')";
+if(mysqli_query($db,$sql)){
+    echo "Fila añadida a la tabla alojamiento </br>";
+}else{
+    echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
+}
+////////////////////////////////////////////////////////////////////
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Villa Calistro','C/norte nº12','Gallegiño','Galicia',43098,'C:\xampp\htdocs\PHP_APP\images\alojamiento8.jpg')";
+if(mysqli_query($db,$sql)){
+    echo "Fila añadida a la tabla alojamiento </br>";
+}else{
+    echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
+}
+////////////////////////////////////////////////////////////////////
+$sql = "INSERT INTO alojamiento (nombre,direccion,localidad,ciudad,cp,foto)VALUES ('Casa Valle del Turia','C/La esquina nº1','Andurria','Barcelona',41022,'C:\xampp\htdocs\PHP_APP\images\alojamiento9.jpg')";
+if(mysqli_query($db,$sql)){
+    echo "Fila añadida a la tabla alojamiento </br>";
+}else{
+    echo "Error al ejecutar consulta " . mysqli_error($db)."</br>";
 }
     
 //Por último cerramos la conexión a la db
