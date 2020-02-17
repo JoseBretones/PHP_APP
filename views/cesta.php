@@ -53,7 +53,7 @@ require('../models/alojamiento.php');
       <?php
 
 	if (!isset($_GET['borrar']))
-	{
+	{ç
 		if (isset($_SESSION['producto']))
 		{
             //no es el primer producto en la cesta
