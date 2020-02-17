@@ -1,6 +1,4 @@
 <?php
-// session_cache_limiter();
-// session_name('cesta');
 session_start();
 require('../models/alojamiento.php');
 ?>
@@ -53,7 +51,7 @@ require('../models/alojamiento.php');
       <?php
 
 	if (!isset($_GET['borrar']))
-	{ç
+	{
 		if (isset($_SESSION['producto']))
 		{
             //no es el primer producto en la cesta
