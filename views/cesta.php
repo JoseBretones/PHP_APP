@@ -1,6 +1,7 @@
 <?php
 session_start();
 require('../models/alojamiento.php');
+$index;
 ?>
 <!doctype html>
 <html lang="en">
@@ -49,95 +50,111 @@ require('../models/alojamiento.php');
       <!--Navbar-->
       <!--Cuerpo Pagina-->
       <?php
-
-	if (!isset($_GET['borrar']))
-	{
-		if (isset($_SESSION['producto']))
-		{
-            //no es el primer producto en la cesta
-            //compruebo si el producto estaba ya en la cesta
-            if(in_array($_GET["id"],$_SESSION["producto"]))
-            {
-                $posicion = array_search($_GET["id"],$_SESSION["producto"]);
-                $_SESSION["unidades"][$posicion]++;
-            }
-            else
-            {
-            //si el producto no estaba ya en la cesta
-            $indice = $_SESSION["contador"];
-            $_SESSION["contador"]++;
-            $_SESSION["producto"][$indice] = $_GET["id"];
-            $_SESSION["precio"][$indice] = $_GET["precio"];
-            $_SESSION["unidades"][$indice] = 1;
-            
-            }
-		}
-		else
-	    {
-            $_SESSION["contador"] = 1;
-            $_SESSION["producto"][0] = $_GET["id"];
-            $_SESSION["unidades"][0] = 1;
-            $_SESSION["precio"][0] = $_GET["precio"];
-
+      if (!isset($_GET['borrar']))
+      {
+        if (isset($_SESSION['producto']))
+        {
+                //no es el primer producto en la cesta
+                //compruebo si el producto estaba ya en la cesta
+                if(in_array($_GET["id"],$_SESSION["producto"]))
+                {
+                    $posicion = array_search($_GET["id"],$_SESSION["producto"]);
+                    $_SESSION["unidades"][$posicion]++;
+                }
+                else
+                {
+                //si el producto no estaba ya en la cesta
+                $indice = $_SESSION["contador"];
+                $_SESSION["contador"]++;
+                $_SESSION["producto"][$indice] = $_GET["id"];
+                $_SESSION["precio"][$indice] = $_GET["precio"];
+                $_SESSION["unidades"][$indice] = 1;                
+                }
         }
-		
-	}
-    else
+        else
+          {
+                $_SESSION["contador"] = 1;
+                $_SESSION["producto"][0] = $_GET["id"];
+                $_SESSION["unidades"][0] = 1;
+                $_SESSION["precio"][0] = $_GET["precio"];
+            }
+        
+      }
+        else
+        {
+         
+            $borrarIndice = array_search($_GET["borrar"],$_SESSION["producto"]);
+            $index = $borrarIndice;
+            
+            if($_SESSION['unidades'][$borrarIndice]>1){
+              $_SESSION['unidades'][$borrarIndice]--;
+              echo '<pre>';
+              print_r($_SESSION);
+              echo '</pre>';
+            }else{
+              unset($_SESSION["unidades"][$borrarIndice]);
+              unset($_SESSION["producto"][$borrarIndice]);
+              unset($_SESSION["precio"][$borrarIndice]);
+              $_SESSION["contador"]--;
+              echo '<pre>';
+              print_r($_SESSION);
+              echo '</pre>';
+            }            
+        }
+        if($_SESSION["contador"] > 0)
+        {
+            mostrar();
+        }
+        else
+        {
+          header('Location: http://localhost/PHP_APP/views/Anular.php?');
+        }
+    
+    
+    
+    function mostrar()
     {
-        $borrarIndice = array_search($_GET["borrar"],$_SESSION["producto"]);
-        unset($_SESSION["producto"][$borrarIndice]);
-        unset($_SESSION["unidades"][$borrarIndice]);
-        unset($_SESSION["precio"][$borrarIndice]);
-        $_SESSION["contador"]--;
-    }
-    if($_SESSION["contador"] > 0)
+    $cabecera = "<div class='container py-5'>";
+    $cabecera='<table class="table" border="1" align="center" width="40%"><caption>Estado de su cesta</caption>';
+    $cabecera.= '<tr><th>Artículo</th><th>Unidades</th><th>Precio</th><th>Subtotal</th><th>Borrar?</td></tr>';
+    echo $cabecera;
+    $suma = 0;
+    
+    
+    foreach($_SESSION["producto"] as $indice => $valor)
     {
-        mostrar();
+      
+
+        $cadena =  "<tr><td>".$valor."</td><td>".$_SESSION["unidades"][$indice];
+        $cadena.="</td><td>".$_SESSION["precio"][$indice]."</td><td>";
+        $cadena.=$_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice]."</td>";
+        $cadena.="<td align=center><a href=cesta.php?borrar=".$valor."><i class='fas fa-trash fa-2x' style='color:black;'></i></a></td></tr>";
+        echo $cadena;
+        $suma += $_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice];
     }
-    else
-    {
-        echo "Cesta vacía...<a href=alojamientos.php>Volver</a>";
+    
+    echo"<tfoot>
+        <tr>
+          <td colspan=3 align='center'>Suma</td>
+          <td>".$suma."</td>
+        </tr>
+      </tfoot>
+    </table>
+    </div>";    
+    echo "<table id='enlaces'align='center'><tr><td>";
+    echo "<button class='btn btn-primary'><a href='alojamientos.php' style='color:white;'>Seguir Comprando</a></button>";
+    echo "</td><td>";
+    echo "<button class='btn btn-danger'><a href='Anular.php' style='color:white;'>Anular Compra</a></button>";
+    echo "</td><td>";
+    echo "<button class='btn btn-success'><a href='confirmar.php' style='color:white;'>Confirmar Pedido</a></button>";
+    echo "</td></tr></table>";
+    echo "</div>";
     }
-
-
-
-function mostrar()
-{
-$cabecera='<table class="table"><caption>Estado de su cesta</caption>';
-$cabecera.= '<thead><tr><th scope="col">Artículo</th><th scope="col">Unidades</th><th scope="col">Precio</th><th scope="col">Subtotal</th><th scope="col">Eliminar producto</td></tr></thead>';
-echo $cabecera;
-$suma = 0;
-
-
-foreach($_SESSION["producto"] as $indice => $valor)
-{
-    $cadena =  "<tr><td>".$valor."</td><td>".$_SESSION["unidades"][$indice];
-    $cadena.="</td><td>".$_SESSION["precio"][$indice]."</td><td>";
-    $cadena.=$_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice]."</td>";
-    $cadena.="<td align=center><a href=cesta.php?borrar=".$valor."><i class='fas fa-trash-alt fa-2x'></i></a></td></tr>";
-    echo $cadena;
-    $suma = $suma + $_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice];
-}
-
-echo"<tfoot>
-    <tr>
-      <td colspan=3 align='center'>Suma</td>
-      <td>".$suma."</td>
-    </tr>
-  </tfoot>
-</table>";
-echo "<table id='enlaces'align='center'><tr><td>";
-echo "<a href='alojamientos.php'>Seguir Comprando</a>";
-echo "</td><td>";
-echo "<a href='Anular.php'>Anular Compra</a>";
-echo "</td><td>";
-echo "<a href='confirmar.php'>Confirmar Pedido</a>";
-echo "</td></tr></table>";
-}
-
-
-echo "</div>";
-?>
+    
+    
+    echo "</div>";
+    
+      ?>
       <!--Cuerpo Pagina-->
       <!--Footer-->
       <footer class="footer-area bg-dark">
