@@ -8,7 +8,25 @@ class Alojamiento {
     public $cp;
     public $foto;
 
-    public function __construct($nom , $dir , $loc , $ciudad , $cp , $foto){
+
+    public function __construct(){
+        //Get the arguments from the constructor
+        $params = func_get_args();
+        //Num of arguments
+        $num_params = func_num_args();
+        $function_constructor = '__construct'.$num_params;
+        //Call a function with a regex
+        if (method_exists($this,$function_constructor)){
+            call_user_func_array(array($this,$function_constructor),$params);
+        }
+
+    }
+
+    public function __construct0(){
+        $this->db = mysqli_connect('localhost', 'root', '','Alojamientos_rurales');
+    }
+
+    public function __construct6($nom , $dir , $loc , $ciudad , $cp , $foto){
         $this->db = mysqli_connect('localhost', 'root', '','Alojamientos_rurales');
         $this->nombre = $nom;
         $this->direccion = $dir;
@@ -28,8 +46,11 @@ class Alojamiento {
     }
 
     public function getAlojamiento($idAlojamiento){
-        $consulta = $this->db->query("SELECT * FROM alojamiento WHERE id_alojamiento = '$idAlojamiento'");
-        return $consulta;
+        $sql = "SELECT * FROM alojamiento WHERE id_alojamiento = '$idAlojamiento'";
+        $resultado = $this->db->query($sql);
+        $myArray = $resultado->fetch_assoc();
+        // print_r($myArray["foto"]);
+        return $myArray;
     }
 
     public function insertarAlojamiento(){

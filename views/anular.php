@@ -2,12 +2,9 @@
 <?php
 session_start();
 unset($_SESSION["unidades"]);
-              unset($_SESSION["producto"]);
-              unset($_SESSION["precio"]);
-              unset($_SESSION["contador"]);
-echo '<pre>';
-print_r($_SESSION);
-echo '</pre>';
+unset($_SESSION["producto"]);
+unset($_SESSION["precio"]);
+unset($_SESSION["contador"]);
 ?>
 <!doctype html>
 <html lang="en">

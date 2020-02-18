@@ -1,7 +1,5 @@
 <?php
 session_start();
-require('../models/alojamiento.php');
-$index;
 ?>
 <!doctype html>
 <html lang="en">
@@ -50,6 +48,8 @@ $index;
       <!--Navbar-->
       <!--Cuerpo Pagina-->
       <?php
+      require('../controllers/alojamiento_controller.php');
+      print_r($myArray['foto']);
       if (!isset($_GET['borrar']))
       {
         if (isset($_SESSION['producto']))
@@ -88,17 +88,11 @@ $index;
             
             if($_SESSION['unidades'][$borrarIndice]>1){
               $_SESSION['unidades'][$borrarIndice]--;
-              echo '<pre>';
-              print_r($_SESSION);
-              echo '</pre>';
             }else{
               unset($_SESSION["unidades"][$borrarIndice]);
               unset($_SESSION["producto"][$borrarIndice]);
               unset($_SESSION["precio"][$borrarIndice]);
               $_SESSION["contador"]--;
-              echo '<pre>';
-              print_r($_SESSION);
-              echo '</pre>';
             }            
         }
         if($_SESSION["contador"] > 0)
@@ -116,16 +110,15 @@ $index;
     {
     $cabecera = "<div class='container py-5'>";
     $cabecera='<table class="table" border="1" align="center" width="40%"><caption>Estado de su cesta</caption>';
-    $cabecera.= '<tr><th>Artículo</th><th>Unidades</th><th>Precio</th><th>Subtotal</th><th>Borrar?</td></tr>';
+    $cabecera.= '<tr><th>Foto</th><th>Artículo</th><th>Unidades</th><th>Precio</th><th>Subtotal</th><th>Borrar?</td></tr>';
     echo $cabecera;
-    $suma = 0;
-    
-    
+    $suma = 0;    
     foreach($_SESSION["producto"] as $indice => $valor)
     {
-      
-
-        $cadena =  "<tr><td>".$valor."</td><td>".$_SESSION["unidades"][$indice];
+      echo $myArray["foto"];
+        //Jugaremos con el controlador de Alojamoiento para extraer datos de la db y exponerlos en la tabla
+        
+        $cadena =  "<tr><td><img src='C:\\xampp\\htdocs\\PHP_APP\\images\\"."'/></td><td>".$valor."</td><td>".$_SESSION["unidades"][$indice];
         $cadena.="</td><td>".$_SESSION["precio"][$indice]."</td><td>";
         $cadena.=$_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice]."</td>";
         $cadena.="<td align=center><a href=cesta.php?borrar=".$valor."><i class='fas fa-trash fa-2x' style='color:black;'></i></a></td></tr>";
@@ -171,7 +164,7 @@ $index;
                   </ul>
                 </div>
                 <div class="col-sm-12 col-lg-6">
-                  <h4 class="footer-widget-title">Popular Category</h4>
+                  <h4 class="footer-widget-title">Provincias</h4>
                   <ul class="menu-footer-1">
                     <li>
                       <a href="#">Wordpress</a>
