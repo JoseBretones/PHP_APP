@@ -1,6 +1,7 @@
 <!--PAGINA INICIO UNA VEZ USUARIO ESTÉ LOGEADO-->
 <?php
 session_start();
+unset($_SESSION["foto"]);
 unset($_SESSION["unidades"]);
 unset($_SESSION["producto"]);
 unset($_SESSION["precio"]);

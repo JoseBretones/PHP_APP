@@ -1,5 +1,7 @@
 <?php
 session_start();
+require('../controllers/alojamiento_controller.php');
+$_SESSION['foto'] = $myArray['foto'];
 ?>
 <!doctype html>
 <html lang="en">
@@ -48,8 +50,6 @@ session_start();
       <!--Navbar-->
       <!--Cuerpo Pagina-->
       <?php
-      require('../controllers/alojamiento_controller.php');
-      print_r($myArray['foto']);
       if (!isset($_GET['borrar']))
       {
         if (isset($_SESSION['producto']))
@@ -63,12 +63,12 @@ session_start();
                 }
                 else
                 {
-                //si el producto no estaba ya en la cesta
+                // si el producto no estaba ya en la cesta
                 $indice = $_SESSION["contador"];
                 $_SESSION["contador"]++;
                 $_SESSION["producto"][$indice] = $_GET["id"];
                 $_SESSION["precio"][$indice] = $_GET["precio"];
-                $_SESSION["unidades"][$indice] = 1;                
+                $_SESSION["unidades"][$indice] = 1;               
                 }
         }
         else
@@ -89,6 +89,7 @@ session_start();
             if($_SESSION['unidades'][$borrarIndice]>1){
               $_SESSION['unidades'][$borrarIndice]--;
             }else{
+              unset($_SESSION["foto"][$borrarIndice]);
               unset($_SESSION["unidades"][$borrarIndice]);
               unset($_SESSION["producto"][$borrarIndice]);
               unset($_SESSION["precio"][$borrarIndice]);
@@ -109,19 +110,20 @@ session_start();
     function mostrar()
     {
     $cabecera = "<div class='container py-5'>";
-    $cabecera='<table class="table" border="1" align="center" width="40%"><caption>Estado de su cesta</caption>';
-    $cabecera.= '<tr><th>Foto</th><th>Artículo</th><th>Unidades</th><th>Precio</th><th>Subtotal</th><th>Borrar?</td></tr>';
+    // $cabecera.="<div class='row'>";
+    // $cabecera.="<div class='col-sm-2 col-md-2 col-lg-2'>";
+    // $cabecera.="<img src='../images/".$_SESSION['foto']."' class='img-fluid'/>";
+    // $cabecera.="</div>";
+    // $cabecera.="<div class='col-sm-6 col-md-8 col-lg-10'>";
+    $cabecera.='<table class="table" border="1" align="center" width="40%"><caption>Estado de su cesta</caption>';
+    $cabecera.= '<tr><th style="text-align:center;">Foto Alojamiento</th><th style="text-align:center;">Artículo</th><th style="text-align:center;">Unidades</th><th style="text-align:center;">Precio</th><th style="text-align:center;">Subtotal</th><th style="text-align:center;">¿Borrar?</td></tr>';
     echo $cabecera;
     $suma = 0;    
-    foreach($_SESSION["producto"] as $indice => $valor)
-    {
-      echo $myArray["foto"];
-        //Jugaremos con el controlador de Alojamoiento para extraer datos de la db y exponerlos en la tabla
-        
-        $cadena =  "<tr><td><img src='C:\\xampp\\htdocs\\PHP_APP\\images\\"."'/></td><td>".$valor."</td><td>".$_SESSION["unidades"][$indice];
-        $cadena.="</td><td>".$_SESSION["precio"][$indice]."</td><td>";
+    foreach($_SESSION["producto"] as $indice => $valor){        
+        $cadena =  "<tr><td style='text-align:center;align-items:center;vertical-align:unset;'><img src='../images/".$_SESSION['foto']."' class='img-fluid' style='width:150px;heigth:150px;'/></td><td style='text-align:center;align-items:center;vertical-align:unset;'>".$valor."</td><td style='text-align:center;align-items:center;vertical-align:unset;'>".$_SESSION["unidades"][$indice];
+        $cadena.="</td><td style='text-align:center;align-items:center;vertical-align:unset;'>".$_SESSION["precio"][$indice]."</td><td style='text-align:center;align-items:center;vertical-align:unset;'>";
         $cadena.=$_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice]."</td>";
-        $cadena.="<td align=center><a href=cesta.php?borrar=".$valor."><i class='fas fa-trash fa-2x' style='color:black;'></i></a></td></tr>";
+        $cadena.="<td style='text-align:center;align-items:center;vertical-align:unset;'><a href=cesta.php?borrar=".$valor."><i class='fas fa-trash fa-2x' style='color:black;'></i></a></td></tr>";
         echo $cadena;
         $suma += $_SESSION["unidades"][$indice]*$_SESSION["precio"][$indice];
     }
@@ -129,7 +131,7 @@ session_start();
     echo"<tfoot>
         <tr>
           <td colspan=3 align='center'>Suma</td>
-          <td>".$suma."</td>
+          <td style='text-align:center;align-items:center;vertical-align:unset;'>".$suma."</td>
         </tr>
       </tfoot>
     </table>
@@ -142,6 +144,8 @@ session_start();
     echo "<button class='btn btn-success'><a href='confirmar.php' style='color:white;'>Confirmar Pedido</a></button>";
     echo "</td></tr></table>";
     echo "</div>";
+    // echo "</div>";
+    // echo "</div>";
     }
     
     
